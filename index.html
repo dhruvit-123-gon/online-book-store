@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Sign In/Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sign In Page -->
+        <div id="signInPage">
+            <h1>Sign In</h1>
+            <form id="signInForm">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Sign In</button>
+            </form>
+            <p>Don't have an account? <a href="#" onclick="showSignUpPage()">Sign Up</a></p>
+        </div>
+        
+        <!-- Sign Up Page -->
+        <div id="signUpPage" style="display: none;">
+            <h1>Sign Up</h1>
+            <form id="signUpForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="showSignInPage()">Sign In</a></p>
+        </div>
+        
+        <!-- Bookstore Page -->
+        <div id="bookstorePage" style="display: none;">
+            <h1>Welcome to the Bookstore</h1>
+            <div class="book">
+                <img src="https://akshargranth.in/cdn/shop/files/Ramayana.jpg?v=1704870685" alt="Book 1">
+                <h2>Book Title 1</h2>
+                <p>Price: $10.99</p>
+            </div>
+            <div class="book">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/405611229/NC/PT/FW/121408955/mahabharata-of-vyasa-sanskrit-text-with-english-hardcover-book-500x500.jpg" alt="Book 2">
+                <h2>Book Title 2</h2>
+                <p>Price: $12.99</p>
+            </div>
+            <div class="book">
+                <img src="https://cdn.exoticindia.com/images/products/original/books-2017/nan284.jpg" alt="Book 3">
+                <h2>Book Title 3</h2>
+                <p>Price: $14.99</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showSignInPage() {
+            document.getElementById("signInPage").style.display = "block";
+            document.getElementById("signUpPage").style.display = "none";
+            document.getElementById("bookstorePage").style.display = "none";
+        }
+        
+        function showSignUpPage() {
+            document.getElementById("signInPage").style.display = "none";
+            document.getElementById("signUpPage").style.display = "block";
+            document.getElementById("bookstorePage").style.display = "none";
+        }
+        
+        function showBookstorePage() {
+            document.getElementById("signInPage").style.display = "none";
+            document.getElementById("signUpPage").style.display = "none";
+            document.getElementById("bookstorePage").style.display = "block";
+        }
+        
+        // Add event listeners to sign in and sign up forms
+        document.getElementById("signInForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // Add sign in logic here
+            showBookstorePage();
+        });
+        
+        document.getElementById("signUpForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // Add sign up logic here
+            alert("Sign up successful!");
+        });
+    </script>
+</body>
+</html>
